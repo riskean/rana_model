@@ -1,0 +1,58 @@
+version: rana_identity_conditioning_v001
+dataset_version: rana_dataset_v003
+identity_token: rana_person
+
+architecture:
+  base_model: FLUX.1-dev
+  face_identity:
+    method: PuLID-FLUX
+    version: v0.9.1
+    role: identity_core
+    reference_mode: face_focused
+    train_from_34_photos: false
+    permanent_fusion: false
+  body_geometry:
+    primary_controls:
+      - depth
+      - pose
+    role: spatial_identity_support
+    train_from_34_photos: false
+  wardrobe:
+    hijab: independent_condition
+    clothing: independent_condition
+    identity_entanglement_allowed: false
+  expression:
+    independent_condition: true
+  optional_body_adapter:
+    name: rana_body_v001
+    enabled_for_baseline: false
+    trigger: systematic_body_drift_after_baseline
+    train_split_only: true
+    low_rank: true
+    attention_focused: true
+    permanent_fusion: false
+
+dataset:
+  total: 34
+  train: 24
+  validation: 6
+  holdout: 4
+  validation_and_holdout_in_training: false
+
+initial_sweep:
+  identity_strength: [0.75, 1.0, 1.15]
+  depth: [off, medium, strong]
+  pose: [off, medium]
+  reference_types:
+    - neutral_front
+    - soft_smile_front
+    - clear_three_quarter
+
+hard_rules:
+  - never_encode_hijab_as_identity
+  - never_encode_outfit_as_identity
+  - never_encode_pose_as_identity
+  - never_encode_expression_as_identity
+  - never_use_validation_for_fitting
+  - never_use_holdout_for_fitting
+  - never_fuse_optional_body_adapter_into_base
