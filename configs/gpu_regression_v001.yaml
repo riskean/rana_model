@@ -1,0 +1,38 @@
+version: rana_gpu_regression_v001
+stage: 3D
+identity: rana_person
+dataset: rana_dataset_v003
+reference_bank: rana_reference_bank_v001
+expression_conditioning: rana_expression_conditioning_v001
+conditioning_assets: rana_conditioning_assets_v002
+base_model: black-forest-labs/FLUX.1-dev
+identity_conditioner: PuLID-FLUX-v0.9.1
+
+hardware:
+  accelerator: cuda
+  preferred_vram_gb: 48
+  minimum_target_vram_gb: 24
+  fp8_fallback_allowed: true
+  cpu_only_regression_allowed: false
+
+fixed_seeds: [101,202,303,404,505,606,707,808]
+unseen_seeds: [909,1001,1102,1203]
+identity_scales: [0.75,1.0,1.15]
+
+splits:
+  train: fitting_and_conditioning_only
+  validation: evaluation_only
+  holdout: evaluation_only
+
+output:
+  format: png
+  record_sha256: true
+  keep_source_data_out_of_repo: true
+
+completion_requires:
+  - cuda_preflight_pass
+  - fixed_seed_matrix_complete
+  - unseen_seed_matrix_complete
+  - validation_complete
+  - holdout_complete
+  - failure_review_complete
