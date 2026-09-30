@@ -43,3 +43,21 @@ Raw personal photos are not committed to this public repository. The repository 
 - Stage 3C inference harness: STAGE_3C_INFERENCE_HARNESS_v001.md
 - Harness config: configs/inference_harness_v001.yaml
 - Core specifications restored: CHARACTER_BIBLE.md, DATASET_SPEC.md, TRAINING_PIPELINE.md, PROMPT_SCHEMA.md
+
+
+## Stage 2D — Conditioning assets
+- Stage 2D v001 specification retained for provenance.
+- Stage 2D v002 completed the private preprocessing milestone.
+- Public manifest: CONDITIONING_ASSET_MANIFEST_v002.csv
+- Config: configs/conditioning_assets_v002.yaml
+- 18 TRAIN-only conditioning records: 4 identity, 9 expression, 5 body; 13 facial gating masks.
+- Derived personal image assets remain private and are not committed.
+
+## Stage 3C — Inference implementation
+- Stage 3C v001 specification retained for provenance.
+- Stage 3C v002 implementation foundation added.
+- Resolver: src/rana_harness/resolver.py
+- Tests: tests/test_resolver.py
+- Harness config: configs/inference_harness_v002.yaml
+- Local resolver tests: 4/4 passed.
+- Full FLUX/PuLID image-generation regression is still pending a compatible GPU environment; it is not falsely marked complete.
