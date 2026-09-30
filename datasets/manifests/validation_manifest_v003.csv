@@ -1,0 +1,7 @@
+image_id,source_filename,split,weight_class,caption
+rana_v003_005,1790680808593.jpg,VALIDATION,SUPPORT,"rana_person, sitting, front full body, light gray square hijab, white long sleeve top black leggings, indoor environment, soft indoor"
+rana_v003_029,IMG_20260901_005921.jpg,VALIDATION,CORE_MEDIUM,"rana_person, head and shoulders, 3/4 close up, white square hijab, white cardigan black bottom, indoor environment, soft indoor"
+rana_v003_030,IMG_20260901_005949.jpg,VALIDATION,SUPPORT,"rana_person, standing, side portrait, white pashmina, white top, indoor environment, soft indoor"
+rana_v003_032,IMG_20260928_213440.jpg,VALIDATION,SUPPORT,"rana_person, standing, front full body, black pashmina, white cardigan black bottom, indoor environment, mixed"
+rana_v003_033,IMG_20260928_213508.jpg,VALIDATION,SUPPORT,"rana_person, standing, 3/4 full body, black pashmina, gray fitted top black bottom, outdoor environment, natural"
+rana_v003_034,IMG_20260929_175636.jpg,VALIDATION,SUPPORT,"rana_person, standing, front full body, white square hijab, white cardigan black bottom, indoor environment, soft indoor"
