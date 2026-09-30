@@ -1,0 +1,5 @@
+image_id,source_filename,split,weight_class,caption
+rana_v003_002,1790599053307.jpg,HOLDOUT,SUPPORT,"rana_person, sitting, front full body, light gray square hijab, dark red long sleeve top black leggings, outdoor environment, natural"
+rana_v003_013,CYMERA_20260901_002755.jpg,HOLDOUT,SUPPORT,"rana_person, standing, front full body, black square hijab, white cardigan black bottom, indoor environment, soft indoor"
+rana_v003_019,CYMERA_20260928_174838.jpg,HOLDOUT,SUPPORT,"rana_person, standing, rear full body, light gray square hijab, white top black leggings backpack, indoor environment, soft indoor"
+rana_v003_031,IMG_20260901_010003.jpg,HOLDOUT,SUPPORT,"rana_person, standing, rear 3/4 portrait, white square hijab, white top, indoor environment, soft indoor"
