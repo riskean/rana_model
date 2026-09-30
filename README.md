@@ -37,3 +37,9 @@ Raw personal photos are not committed to this public repository. The repository 
 - Reference bank config: configs/reference_bank_v001.yaml
 - Canonical behavior: rana_person resolves to a neutral identity reference; smiling resolves to a subject-specific expression reference; hijab/clothing remain independent conditions.
 - Validation and holdout references are not used for baseline fitting.
+## Completeness audit
+- PROJECT_COMPLETENESS_AUDIT_v001.md
+- Stage 2D conditioning asset preparation: STAGE_2D_CONDITIONING_ASSETS_v001.md
+- Stage 3C inference harness: STAGE_3C_INFERENCE_HARNESS_v001.md
+- Harness config: configs/inference_harness_v001.yaml
+- Core specifications restored: CHARACTER_BIBLE.md, DATASET_SPEC.md, TRAINING_PIPELINE.md, PROMPT_SCHEMA.md
