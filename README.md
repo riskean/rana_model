@@ -70,3 +70,9 @@ Raw personal photos are not committed to this public repository. The repository 
 - Hardware request: GPU_RUN_REQUEST.md
 - Current runtime is CPU-only; no generation results are claimed.
 - The next gate requires a real CUDA run before any body adapter, expression adapter, or character LoRA decision.
+
+
+## Licensing and deployment gate
+- Licensing note: LICENSING_NOTES_v001.md
+- The current FLUX.1-dev baseline is not treated as commercially cleared. The model card identifies a Non-Commercial License, and PuLID's FLUX documentation says its use follows the FLUX.1-dev license.
+- Commercial deployment requires a separate license review and, if necessary, a different technically compatible stack.
