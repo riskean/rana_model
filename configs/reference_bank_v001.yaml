@@ -1,0 +1,95 @@
+version: rana_reference_bank_v001
+identity: rana_person
+dataset_version: rana_dataset_v003
+
+identity_references:
+  neutral_front:
+    - filename: IMG_20260901_005542.jpg
+      split: train
+      role: primary
+      conditioning: face_focused
+  neutral_three_quarter:
+    - filename: IMG_20260901_005744.jpg
+      split: train
+      role: primary
+      conditioning: face_focused
+    - filename: CYMERA_20260901_005132.jpg
+      split: train
+      role: secondary
+      conditioning: face_focused
+  side_support:
+    - filename: IMG_20260901_005731.jpg
+      split: train
+      role: support
+      conditioning: face_focused
+
+expression_references:
+  smiling:
+    mode: reference_conditioned
+    primary:
+      - CYMERA_20260901_005029.jpg
+      - IMG_20260901_005629.jpg
+      - 1790605624951.jpg
+    robustness:
+      - IMG_20260901_005650.jpg
+    evaluation_only:
+      - IMG_20260901_005921.jpg
+  pout:
+    - CYMERA_20260901_005335.jpg
+    - IMG_20260901_005815.jpg
+  wink_smile:
+    - IMG_20260901_005650.jpg
+  eyes_closed:
+    - CYMERA_20260824_230551.jpg
+  looking_up:
+    - CYMERA_20260901_001623.jpg
+  looking_down:
+    - CYMERA_20260901_001324.jpg
+
+body_references:
+  front:
+    - CYMERA_20260901_002601.jpg
+    - file_000000001d6c81f5a63d04b00dd863a4.png
+  three_quarter:
+    - CYMERA_20260901_004624.jpg
+    - 1790678683041.jpg
+  side:
+    - 1790592352294.jpg
+  rear:
+    baseline_reference: null
+    evaluation_only:
+      - CYMERA_20260928_174838.jpg
+
+separation_rules:
+  identity_channel:
+    crop: face_focused
+    must_not_define:
+      - hijab
+      - clothing
+      - background
+      - pose
+      - expression
+  expression_channel:
+    crop: expression_region
+    must_not_define_identity: true
+    must_not_define:
+      - hijab
+      - clothing
+      - background
+  body_channel:
+    role: geometry_and_pose
+    must_not_define_face_identity: true
+
+evaluation_rules:
+  validation_in_fitting: false
+  holdout_in_fitting: false
+  holdout_as_reference_in_baseline: false
+  repeat_same_reference_across_all_tests: false
+
+canonical_resolution:
+  rana_person:
+    identity_reference: neutral_front
+  smiling:
+    expression_reference: smiling.primary
+  three_quarter:
+    body_or_pose_reference: three_quarter
