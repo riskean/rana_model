@@ -1,0 +1,33 @@
+version: rana_conditioning_assets_v002
+identity: rana_person
+dataset_version: rana_dataset_v003
+source_archive: barunya.zip
+public_binary_assets_committed: false
+
+counts:
+  identity_crops: 4
+  expression_crops: 9
+  body_references: 5
+  facial_gating_masks: 13
+  total_records: 18
+
+split_policy:
+  train_only_for_baseline: true
+  validation_in_fitting: false
+  holdout_in_fitting: false
+
+mask_policy:
+  type: deterministic_elliptical_facial_gate
+  semantic_segmentation: false
+  replaceable_with_better_face_parser: true
+
+asset_manifest: CONDITIONING_ASSET_MANIFEST_v002.csv
+
+quality_gate:
+  require_source_hash: true
+  require_asset_hash: true
+  require_manual_review_status: true
+  reject_false_face_detection: true
+  reject_background_dominance: true
+  reject_clothing_dominance_in_identity_crop: true
+  reject_proportion_distortion: true
