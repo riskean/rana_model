@@ -1,0 +1,25 @@
+version: rana_expression_conditioning_v001
+identity: rana_person
+dataset_version: rana_dataset_v003
+
+expression_presets:
+  smiling:
+    mode: reference_conditioned
+    references:
+      - 1790605624951.jpg
+      - CYMERA_20260901_001623.jpg
+      - CYMERA_20260901_005029.jpg
+      - IMG_20260901_005629.jpg
+      - IMG_20260901_005650.jpg
+      - IMG_20260901_005921.jpg
+    role: expression_only
+    identity_embedding: separate
+    wardrobe_embedding: separate
+    body_conditioning: separate
+
+rules:
+  - smile_reference_must_not_define_identity
+  - smile_reference_must_not_define_wardrobe
+  - smile_reference_must_not_define_background
+  - swap_expression_reference_without_retraining_identity
+  - no_expression_lora_in_baseline
