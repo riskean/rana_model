@@ -1,0 +1,77 @@
+version: rana_inference_harness_v002
+identity: rana_person
+dataset_version: rana_dataset_v003
+reference_bank: rana_reference_bank_v001
+expression_conditioning: rana_expression_conditioning_v001
+conditioning_assets: rana_conditioning_assets_v002
+resolver: src/rana_harness/resolver.py
+
+model:
+  base_family: FLUX.1-dev
+  identity_conditioner: PuLID-FLUX-v0.9.1
+  exact_revision_required: true
+  weights_committed: false
+
+defaults:
+  identity_reference: neutral_front
+  expression: neutral
+  view: front
+  pose_control: off
+  depth_control: off
+
+separation:
+  identity: face_focused_reference
+  expression: expression_region_reference
+  wardrobe: text_or_explicit_garment_reference
+  body: pose_or_depth_condition
+  environment: text_condition
+  lighting: text_condition
+  camera: text_or_control_condition
+
+identity_reference_policy:
+  front: neutral_front
+  three_quarter: neutral_three_quarter
+  side: side_support
+  rear: neutral_three_quarter
+  wardrobe_reference_for_identity: forbidden
+
+regression:
+  fixed_seeds: [101, 202, 303, 404, 505, 606, 707, 808]
+  unseen_seeds: [909, 1001, 1102, 1203]
+  validation_in_fitting: false
+  holdout_in_fitting: false
+  cherry_pick_outputs: false
+
+failure_codes:
+  F01: facial_identity_drift
+  F02: body_proportion_drift
+  F03: head_to_body_proportion_drift
+  F04: apparent_age_drift
+  F05: skin_or_rendering_drift
+  F06: hijab_entanglement
+  F07: clothing_entanglement
+  F08: pose_drift
+  F09: camera_or_perspective_drift
+  F10: temporal_inconsistency_future_video
+
+record_fields:
+  - identity_version
+  - dataset_version
+  - reference_bank_version
+  - conditioning_asset_version
+  - expression_conditioning_version
+  - base_model_revision
+  - adapter_versions
+  - prompt
+  - negative_prompt
+  - seed
+  - resolution
+  - scheduler
+  - inference_steps
+  - guidance
+  - identity_scale
+  - expression_scale
+  - pose_scale
+  - depth_scale
+  - output_filename
+  - output_sha256
