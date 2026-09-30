@@ -61,3 +61,12 @@ Raw personal photos are not committed to this public repository. The repository 
 - Harness config: configs/inference_harness_v002.yaml
 - Local resolver tests: 4/4 passed.
 - Full FLUX/PuLID image-generation regression is still pending a compatible GPU environment; it is not falsely marked complete.
+
+
+## Stage 3D — GPU regression gate
+- Stage 3D specification: STAGE_3D_GPU_REGRESSION_v001.md
+- Config: configs/gpu_regression_v001.yaml
+- Preflight: tools/gpu_preflight.py
+- Hardware request: GPU_RUN_REQUEST.md
+- Current runtime is CPU-only; no generation results are claimed.
+- The next gate requires a real CUDA run before any body adapter, expression adapter, or character LoRA decision.
